@@ -27,18 +27,18 @@
 				var tempG = Math.floor(Math.random() * 255);
 				var tempB = Math.floor(Math.random() * 255);
 				var tempColor = 'rgb(' + tempR + ',' + tempG + ',' + tempB + ')';
-	            var tempX = Math.floor(Math.random() * self.W);
-	            var tempY = Math.floor(Math.random() * self.H);
-	            var tempR = Math.floor(Math.random() * 60);
-	            var tempBall = {
-	            	x: tempX,
-	            	y: tempY,
-	            	r: tempR,
-	                stepX: Math.floor(Math.random() * 4 -2),
-	                stepY: Math.floor(Math.random() * 4 -2),
-	                color: tempColor
-	            };
-	            self.balls.push(tempBall);
+				var tempX = Math.floor(Math.random() * self.W);
+				var tempY = Math.floor(Math.random() * self.H);
+				var tempR = Math.floor(Math.random() * 60);
+				var tempBall = {
+					x: tempX,
+					y: tempY,
+					r: tempR,
+					stepX: Math.floor(Math.random() * 4 -2),
+					stepY: Math.floor(Math.random() * 4 -2),
+					color: tempColor
+				};
+				self.balls.push(tempBall);
 			}
 			return true;
 		}
@@ -56,11 +56,11 @@
 	    var self = this,
 	    	balls = self.balls;
 	    	len = balls.length;
-        for(var i = 0; i < len; i++){
-		    balls[i].x += balls[i].stepX;
-		    balls[i].y += balls[i].stepY; 
-		    self.bumpTest(balls[i]);
-		}
+            for(var i = 0; i < len; i++){
+		balls[i].x += balls[i].stepX;
+		balls[i].y += balls[i].stepY; 
+		self.bumpTest(balls[i]);
+	    }
 	}
 
 	OL.prototype.renderBalls = function() {
@@ -68,16 +68,16 @@
 	    	canvas = self.canvas,
 	    	balls = self.balls,
 	    	len = balls.length;
-        canvas.height = self.H;
-        var cxt = canvas.getContext('2d');
-        for(var i = 0; i < len; i++){
-            cxt.beginPath();
-            cxt.arc(balls[i].x, balls[i].y, balls[i].r, 0, 2 * Math.PI);
-            cxt.fillStyle = balls[i].color;
-            cxt.globalCompositeOperation = 'xor';
-            cxt.closePath();
-            cxt.fill();
-        }        
+            canvas.height = self.H;
+            var cxt = canvas.getContext('2d');
+            for(var i = 0; i < len; i++){
+                cxt.beginPath();
+                cxt.arc(balls[i].x, balls[i].y, balls[i].r, 0, 2 * Math.PI);
+                cxt.fillStyle = balls[i].color;
+                cxt.globalCompositeOperation = 'xor';
+                cxt.closePath();
+                cxt.fill();
+            }        
 	}
 
 	OL.prototype.bumpTest = function(ele) {
