@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="300" style="border: 1px solid black;"></canvas>
+
+<script type="text/javascript" src="./src/ol.js"></script>
+<script type="text/javascript">
+	var canvas = document.getElementById('canvas');
+	var options = {
+		width: 500,
+		height: 300,
+		num: 12
+	};
+
+	ol(canvas, options);
+</script>
+</body>
+</html>
